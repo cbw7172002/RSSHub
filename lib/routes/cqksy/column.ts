@@ -31,6 +31,13 @@ export const route: Route = {
         const { id = '1846541' } = ctx.req.param();
         const baseUrl = 'https://www.cqksy.cn';
         const columnUrl = `${baseUrl}/web/column/col${id}.html`;
+    
+        // 统一请求头
+        const headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+            'Referer': 'https://www.cqksy.cn/',
+            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        };
 
         // 1. 获取栏目列表页
         const response = await ofetch(columnUrl);
